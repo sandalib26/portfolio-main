@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog — Sandali</title>
+  
+  
+  <style>
+    :root {
+      --bg:        #faf8f5;
+      --bg2:       #f2ede6;
+      --bg3:       #ebe4d9;
+      --text:      #1c1915;
+      --accent:    #9b6f3b;
+      --muted:     #7a6f62;
+      --border:    rgba(155,111,59,0.18);
+      --tag-bg:    rgba(255,255,255,0.75);
+      --accent-light:   rgba(155,111,59,0.1);
+      --accent-hover:   #7a5830;
+    }
+
+    body { 
+      background-color: var(--bg) !important; 
+      color: var(--text) !important; 
+      margin: 0; 
+    }
+    
+    /* NAVIGATION - Home page එකට සමාන වන ලෙස සකස් කළා */
+    nav {
+      position: fixed; 
+      inset: 0 0 auto; 
+      z-index: 200;
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between;
+      padding: 1.1rem var(--px, 5%); 
+      background: rgba(250,248,245,0.88);
+      backdrop-filter: blur(16px); 
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .logo { font-family: serif; font-size: 1.35rem; color: var(--text); text-decoration: none; font-weight: bold; }
+    .logo span { color: var(--accent); }
+    
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { color: var(--muted); font-size: .8rem; letter-spacing: .09em; text-transform: uppercase; text-decoration: none; transition: color 0.3s; }
+    .nav-links a.active { color: var(--accent); font-weight: bold; }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* BLOG CONTENT STYLES */
+    .blog-hero { 
+      padding: 140px 0 40px 0 !important; 
+      text-align: center; 
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .blog-grid { 
+      display: grid !important; 
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important; 
+      gap: 30px !important; 
+      padding: 20px 0;
+    }
+
+    .blog-card { 
+      background: var(--bg2) !important; 
+      border: 1px solid var(--border) !important; 
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+    
+    .blog-card:hover { transform: translateY(-5px); }
+    .pill { background: var(--accent-light) !important; color: var(--accent) !important; border: 1px solid var(--border) !important; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; }
+    
+    .blog-thumb { background: var(--bg3) !important; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+    .bt1 { background: linear-gradient(135deg,#e8d9c5,#d6c4a8) !important; width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+    .bt2 { background: linear-gradient(135deg,#e8d5c4,#d6bfa8) !important; width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+    .bt3 { background: linear-gradient(135deg,#d9e0c5,#c4cfa8) !important; width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+    
+    .blog-body { padding: 25px; flex-grow: 1; }
+    .tag { background: var(--tag-bg) !important; color: var(--accent) !important; border: 1px solid var(--border) !important; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-right: 5px; text-transform: uppercase; }
+    .b-title { margin: 15px 0 10px 0; font-size: 1.2rem; color: var(--text) !important; }
+    .b-excerpt { color: var(--muted) !important; font-size: 14px; margin-bottom: 20px; line-height: 1.6; }
+    .b-meta { font-size: 12px; color: var(--muted) !important; display: flex; gap: 15px; }
+    
+    footer { 
+      border-top: 1px solid var(--border) !important; 
+      padding: 40px 0; 
+      margin-top: 60px; 
+      color: var(--muted) !important; 
+      text-align: center; 
+    }
+    
+    .footer-inner { display: flex; flex-direction: column; gap: 10px; }
+    .footer-logo { font-weight: bold; font-size: 1.1rem; color: var(--text); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Sandali<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="blog-hero">
+  <div class="container">
+    <div style="margin-bottom:20px">
+      <span class="pill">Published on Medium</span>
+    </div>
+    <h1>My Blog</h1>
+    <p>Thoughts on technology, management, and my journey as an undergraduate.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="blog-grid">
+
+      <a href="https://medium.com/@sandalih48/mastering-layouts-with-css-grid-28b248578822" target="_blank" rel="noopener" class="blog-card">
+        <div class="blog-thumb"><div class="bt1">🎨</div></div>
+        <div class="blog-body">
+          <div class="tags"><span class="tag">CSS</span><span class="tag">Web Design</span></div>
+          <h2 class="b-title">Mastering Layouts with CSS Grid</h2>
+          <p class="b-excerpt">In modern web design, creating clean and flexible layouts is very important. CSS Grid allows designers to create complex designs easily.</p>
+          <div class="b-meta"><span>Apr 03 2026</span><span>2 min read</span></div>
+        </div>
+      </a>
+
+      <a href="https://medium.com/@sandalih48/the-art-and-science-of-web-designing-0e1b93ee1927" target="_blank" rel="noopener" class="blog-card">
+        <div class="blog-thumb"><div class="bt2">🖥️</div></div>
+        <div class="blog-body">
+          <div class="tags"><span class="tag">Web Design</span><span class="tag">UI/UX</span></div>
+          <h2 class="b-title">The Art and Science of Web Designing</h2>
+          <p class="b-excerpt">A well-designed website combines creativity, usability, and functionality to enhance the user experience.</p>
+          <div class="b-meta"><span>Apr 01 2026</span><span>2 min read</span></div>
+        </div>
+      </a>
+
+      <a href="https://medium.com/@sandalih48" target="_blank" rel="noopener" class="blog-card">
+        <div class="blog-thumb"><div class="bt3">📋</div></div>
+        <div class="blog-body">
+          <div class="tags"><span class="tag">Management</span><span class="tag">Teams</span></div>
+          <h2 class="b-title">Effective Project Management</h2>
+          <p class="b-excerpt">Key principles and tools that help tech teams deliver projects on time and maintain high quality.</p>
+          <div class="b-meta"><span>Mar 10 2026</span><span>6 min read</span></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-logo">Sandali Bhagya<span style="color:var(--accent)">.</span></span>
+      <span class="footer-copy">© 2026 Sandali Bhagya. IN1601 Assignment.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

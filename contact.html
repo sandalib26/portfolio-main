@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Sandali Bhagya</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS Variables - Oya deepu colors walata anuwa update kara */
+    :root {
+      --bg:        #faf8f5;        /* Creamy warm white */
+      --bg2:       #f2ede6;        /* Soft linen tone */
+      --bg3:       #ebe4d9;        /* Medium linen */
+      --accent:    #9b6f3b;        /* Rich warm brown */
+      --accent2:   #7a5228;        /* Dark warm brown */
+      --text:      #1c1915;        /* Deep warm charcoal */
+      --muted:     #7a6f62;        /* Muted brown */
+      --border:    rgba(155, 111, 59, 0.18);
+      --tag-bg:    rgba(255, 255, 255, 0.75); /* Floating tags white */
+      --px:        clamp(1.2rem, 5vw, 6rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; inset: 0 0 auto; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem var(--px); background: rgba(250,248,245,0.88);
+      backdrop-filter: blur(16px); border-bottom: 1px solid var(--border);
+    }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--text); text-decoration: none; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: .8rem; letter-spacing: .09em; text-transform: uppercase; text-decoration: none; }
+    .nav-links a.active { color: var(--accent); }
+
+    /* HERO SECTION */
+    .contact-hero { padding: 8rem var(--px) 4rem; text-align: center; }
+    .slabel { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1rem; }
+    .contact-hero p { color: var(--muted); max-width: 600px; margin: 0 auto; }
+
+    /* CONTACT GRID */
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 var(--px); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; margin-top: 3rem; }
+
+    /* CARDS */
+    .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; }
+    .cinfo-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .cinfo-card { display: flex; align-items: center; gap: 1.2rem; transition: transform 0.3s; }
+    .cinfo-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+    .cicon { width: 45px; height: 45px; border-radius: 12px; background: var(--tag-bg); display: flex; align-items: center; justify-content: center; color: var(--accent); border: 1px solid var(--border); }
+
+    .ci-label { font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+    .ci-val { font-size: .95rem; font-weight: 500; }
+
+    /* FORM */
+    .form-card { background: #ffffff; }
+    .flabel { display: block; font-size: .75rem; margin-bottom: .5rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+    .finput, .ftextarea { 
+      width: 100%; padding: 1rem; border-radius: 8px; border: 1px solid var(--border); 
+      background: var(--bg); font-family: inherit; margin-bottom: 1.5rem; transition: border-color 0.3s;
+    }
+    .finput:focus, .ftextarea:focus { outline: none; border-color: var(--accent); background: #fff; }
+    .ftextarea { height: 150px; resize: vertical; }
+
+    .btn-primary {
+      background: var(--accent); color: #fff; border: none; padding: 1rem 2.5rem;
+      border-radius: 50px; font-weight: 500; cursor: pointer; transition: 0.3s;
+      display: inline-flex; align-items: center; gap: .5rem;
+    }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
+
+    /* SUCCESS MESSAGE */
+    .fsuccess {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+    .fsuccess.show {
+      display: block;
+    }
+
+    /* FOOTER */
+    footer { padding: 3rem var(--px); border-top: 1px solid var(--border); text-align: center; margin-top: 5rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; }
+    .footer-copy { display: block; font-size: .8rem; color: var(--muted); margin-top: .5rem; }
+
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      nav .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Sandali<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="contact-hero">
+  <div class="slabel">GET IN TOUCH</div>
+  <h1>Let's Work Together</h1>
+  <p>Have a question or want to collaborate? I'd love to hear from you.</p>
+</section>
+
+<section style="padding-bottom:80px;">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="cinfo-list">
+        <div class="card cinfo-card">
+          <div class="cicon">
+            <svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="14" height="11" rx="2"/><path d="M2 7l7 4 7-4"/></svg>
+          </div>
+          <div>
+            <div class="ci-label">Email</div>
+            <div class="ci-val">sandalih48@gmail.com</div>
+          </div>
+        </div>
+        
+        <div class="card cinfo-card">
+          <div class="cicon">
+            <svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2C6.24 2 4 4.24 4 7c0 4 5 9 5 9s5-5 5-9c0-2.76-2.24-5-5-5z"/><circle cx="9" cy="7" r="1.5"/></svg>
+          </div>
+          <div>
+            <div class="ci-label">Location</div>
+            <div class="ci-val">Moratuwa, Sri Lanka</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card form-card">
+        <form id="contact-form">
+          <div class="form-fields">
+            <label class="flabel" for="name">Name</label>
+            <input class="finput" id="name" type="text" placeholder="Your name" required/>
+
+            <label class="flabel" for="email">Email</label>
+            <input class="finput" id="email" type="email" placeholder="you@example.com" required/>
+
+            <label class="flabel" for="message">Message</label>
+            <textarea class="ftextarea" id="message" placeholder="Tell me what's on your mind..." required></textarea>
+
+            <button type="submit" class="btn btn-primary">
+              Send Message
+            </button>
+          </div>
+          
+          <div class="fsuccess">
+            <h3 style="color: var(--accent); margin-bottom: 1rem;">Thank you!</h3>
+            <p>Your message has been sent successfully. I'll get back to you soon.</p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-logo">Sandali Bhagya<span style="color:var(--accent)">.</span></span>
+      <span class="footer-copy">© 2026 Sandali Bhagya. IN1601 Assignment.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
